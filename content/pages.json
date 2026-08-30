@@ -1,0 +1,160 @@
+{
+  "home": {
+    "hero": {
+      "eyebrow": "Georgia Institute of Technology",
+      "heading": "Build. Learn. Fly.",
+      "highlight": "Together!",
+      "lead": "Aero Makers at Georgia Tech fosters an inclusive, friendly environment where students connect with the broader aerospace community through hands-on projects, workshops, and shared equipment.",
+      "primary_cta": "See Our Work",
+      "secondary_cta": "Join the Community"
+    },
+    "stats": [
+      {
+        "title": "Hands-On",
+        "text": "Workshops & build nights"
+      },
+      {
+        "title": "Inclusive",
+        "text": "Open to all on campus"
+      },
+      {
+        "title": "Equipped",
+        "text": "Tools for aerospace makers"
+      },
+      {
+        "title": "Connected",
+        "text": "Events with industry & peers"
+      }
+    ],
+    "welcome": {
+      "eyebrow": "Welcome",
+      "heading": "Making aerospace accessible to everyone on campus",
+      "description": "AMGT bridges the gap between classroom theory and real engineering. We run events that teach members how to make things and invest in equipment that benefits aerospace maker projects across Georgia Tech.",
+      "cta": "Meet the Team"
+    },
+    "events": {
+      "eyebrow": "Recent Events",
+      "heading": "Learn by doing",
+      "lead": "From build nights to fabrication workshops, our events give every student a chance to get hands-on with real aerospace engineering.",
+      "cta": "View All Events"
+    },
+    "bands": [
+      {
+        "label": "Explore",
+        "title": "Equipment & Tools",
+        "text": "See what makers have access to"
+      },
+      {
+        "label": "About",
+        "title": "Our Mission & Board",
+        "text": "Learn who leads AMGT"
+      },
+      {
+        "label": "Partner",
+        "title": "Sponsorship",
+        "text": "See our impact and support AMGT"
+      }
+    ]
+  },
+  "events": {
+    "hero": {
+      "eyebrow": "Past Events",
+      "heading": "Learn by doing",
+      "lead": "From introductory build nights to advanced fabrication demos, our events give every student a chance to get their hands on real aerospace engineering."
+    }
+  },
+  "equipment": {
+    "hero": {
+      "eyebrow": "Equipment & Projects",
+      "heading": "Tools that push what GT makers can build",
+      "lead": "We purchase and maintain equipment that directly supports aerospace maker projects on campus\u2014helping student teams move faster from idea to flight-ready hardware."
+    }
+  },
+  "about": {
+    "hero": {
+      "eyebrow": "About AMGT",
+      "heading": "Our mission & team",
+      "lead": "We foster an inclusive, friendly environment between students and the larger aerospace community through hands-on projects, events, and shared equipment."
+    },
+    "mission": {
+      "eyebrow": "Our Mission",
+      "heading": "",
+      "description": "AMGT exists to bridge the gap between classroom theory and real engineering. We run events that teach members how to make things\u2014from composite layups to flight hardware\u2014and we invest in equipment that benefits aerospace maker projects across Georgia Tech.",
+      "description2": "Whether you're prototyping a drone, machining a bracket, or learning a new fabrication skill for the first time, you'll find a welcoming community ready to help you push the bounds of what can be created.",
+      "points": [
+        "Inclusive workshops for all skill levels",
+        "Shared equipment for aerospace projects",
+        "Events that connect students with the aerospace community"
+      ]
+    },
+    "team_head": {
+      "eyebrow": "Leadership",
+      "heading": "Executive board",
+      "lead": "AMGT is run by students passionate about hands-on aerospace engineering. Replace these placeholders with your current board members."
+    },
+    "team": [
+      {
+        "role": "President",
+        "name": "Name Here",
+        "description": "Leads club operations and outreach",
+        "image": "placeholder images/DSC00302.jpg",
+        "alt": "President placeholder photo"
+      },
+      {
+        "role": "Vice President",
+        "name": "Name Here",
+        "description": "Supports events and member engagement",
+        "image": "placeholder images/DSC09354.jpg",
+        "alt": "Vice President placeholder photo"
+      },
+      {
+        "role": "Equipment Lead",
+        "name": "Name Here",
+        "description": "Manages tools, purchases, and lab upkeep",
+        "image": "placeholder images/DSC09209.jpg",
+        "alt": "Equipment Lead placeholder photo"
+      },
+      {
+        "role": "Events Lead",
+        "name": "Name Here",
+        "description": "Plans workshops and community build nights",
+        "image": "placeholder images/DSC09110.jpg",
+        "alt": "Events Lead placeholder photo"
+      }
+    ]
+  },
+  "contact": {
+    "hero": {
+      "eyebrow": "Get in Touch",
+      "heading": "Join AMGT or partner with us",
+      "lead": "Follow our builds, get event updates, or reach out about sponsorship and collaboration. We'd love to hear from you."
+    },
+    "intro": {
+      "eyebrow": "Stay Connected",
+      "heading": "Reach the team",
+      "description": "Whether you want to join a build night, ask about equipment, or explore sponsorship, send us a message and we'll get back to you."
+    },
+    "links": [
+      {
+        "label": "Email",
+        "value": "contact@amgt.gatech.edu",
+        "href": "mailto:contact@amgt.gatech.edu"
+      },
+      {
+        "label": "Instagram",
+        "value": "@aeromakersgt",
+        "href": "https://instagram.com/"
+      }
+    ],
+    "sponsors_head": {
+      "eyebrow": "Our Sponsors",
+      "heading": "Powered by partners who believe in makers",
+      "lead": "AMGT is grateful for the organizations that help us equip labs, run events, and keep aerospace making accessible to every student at Georgia Tech."
+    },
+    "note": {
+      "text": "Interested in supporting the next generation of aerospace engineers?",
+      "impact_label": "See our impact",
+      "email_label": "email us"
+    }
+  }
+}

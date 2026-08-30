@@ -11,7 +11,7 @@
     {
       "title": "3D Printing & CAD Night",
       "tag": "Workshop",
-      "description": "Students designed parts in CAD and printed aerospace components on club 3D printers.",
+      "description": "Students designed parts in CAD and printed aerospace components on club 3D printers.e3e3e3e3e3e3e3e3",
       "image": "placeholder images/DSC09110.jpg",
       "alt": "Members working with 3D printers and CAD software",
       "show_on_home": true
@@ -27,17 +27,9 @@
     {
       "title": "Maker Space Social",
       "tag": "Community",
-      "description": "A fun community night in the Aero Maker Space\u2014building friendships alongside projects.",
+      "description": "A fun community night in the Aero Maker Space-building friendships alongside projects.",
       "image": "placeholder images/IMG_2378.JPG",
       "alt": "Community social event in the Aero Maker Space",
-      "show_on_home": false
-    },
-    {
-      "title": "New Event",
-      "tag": "Workshop",
-      "description": "Describe what happened at this event.",
-      "image": "",
-      "alt": "",
       "show_on_home": false
     },
     {
