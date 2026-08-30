@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" role="img" aria-label="Mission lab placeholder">
+  <rect width="800" height="1000" fill="#e8edf2"/>
+  <rect x="60" y="80" width="680" height="420" rx="16" fill="#003057" opacity="0.85"/>
+  <rect x="100" y="540" width="280" height="180" rx="10" fill="#b3a369" opacity="0.6"/>
+  <rect x="420" y="540" width="320" height="180" rx="10" fill="#1e2a36" opacity="0.25"/>
+  <text x="400" y="860" text-anchor="middle" fill="#003057" font-family="Arial,sans-serif" font-size="24" font-weight="600">Maker Lab</text>
+  <text x="400" y="895" text-anchor="middle" fill="#6b7c8f" font-family="Arial,sans-serif" font-size="16">Placeholder image</text>
+</svg>

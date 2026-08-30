@@ -1,0 +1,75 @@
+{
+  "page": {
+    "eyebrow": "Sponsorship",
+    "heading": "Help us equip the next generation of aerospace makers",
+    "lead": "Your partnership funds tools, workshops, and community events that make hands-on aerospace engineering accessible to every student at Georgia Tech."
+  },
+  "stats": [
+    {
+      "value": "200+",
+      "label": "Students served",
+      "detail": "Members, workshop attendees, and project teams supported each year"
+    },
+    {
+      "value": "12",
+      "label": "Tools & machines",
+      "detail": "Shared equipment available to aerospace makers on campus"
+    },
+    {
+      "value": "25+",
+      "label": "Workshops hosted",
+      "detail": "Hands-on events teaching fabrication, CAD, and flight hardware"
+    },
+    {
+      "value": "$15K+",
+      "label": "Equipment invested",
+      "detail": "Tools purchased and maintained for the Georgia Tech community"
+    }
+  ],
+  "why": {
+    "eyebrow": "Why Sponsor",
+    "heading": "Your support becomes hardware, skills, and community",
+    "description": "AMGT turns sponsorship into real capability: machines students can use, events that teach new skills, and a welcoming space where aerospace ideas become flight-ready hardware.",
+    "points": [
+      "Fund tools and machines students use every week",
+      "Underwrite workshops, build nights, and outreach events",
+      "Connect your brand with Georgia Tech aerospace talent"
+    ]
+  },
+  "sponsors": {
+    "eyebrow": "Our Partners",
+    "heading": "Powered by partners who believe in makers",
+    "lead": "AMGT is grateful for the organizations that help us equip labs, run events, and keep aerospace making accessible to every student at Georgia Tech.",
+    "items": [
+      {
+        "name": "Sponsor 1",
+        "logo": "images/sponsor-1.svg",
+        "alt": "Sponsor placeholder 1",
+        "url": ""
+      },
+      {
+        "name": "Sponsor 2",
+        "logo": "images/sponsor-2.svg",
+        "alt": "Sponsor placeholder 2",
+        "url": ""
+      },
+      {
+        "name": "Sponsor 3",
+        "logo": "images/sponsor-3.svg",
+        "alt": "Sponsor placeholder 3",
+        "url": ""
+      },
+      {
+        "name": "Sponsor 4",
+        "logo": "images/sponsor-4.svg",
+        "alt": "Sponsor placeholder 4",
+        "url": ""
+      }
+    ]
+  },
+  "cta": {
+    "text": "Interested in supporting the next generation of aerospace engineers?",
+    "email": "contact@amgt.gatech.edu",
+    "link_label": "Email us"
+  }
+}

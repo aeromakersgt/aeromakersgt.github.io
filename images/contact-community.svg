@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="700" viewBox="0 0 900 700" role="img" aria-label="Community contact placeholder">
+  <rect width="900" height="700" fill="#f4f6f8"/>
+  <circle cx="300" cy="260" r="100" fill="#003057" opacity="0.15"/>
+  <circle cx="450" cy="240" r="100" fill="#b3a369" opacity="0.25"/>
+  <circle cx="600" cy="260" r="100" fill="#003057" opacity="0.15"/>
+  <rect x="120" y="400" width="660" height="120" rx="16" fill="#003057" opacity="0.1"/>
+  <text x="450" y="590" text-anchor="middle" fill="#003057" font-family="Arial,sans-serif" font-size="24" font-weight="600">Community Event</text>
+  <text x="450" y="625" text-anchor="middle" fill="#6b7c8f" font-family="Arial,sans-serif" font-size="16">Placeholder image</text>
+</svg>

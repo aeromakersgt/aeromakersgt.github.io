@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Hero workshop placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a2744"/>
+      <stop offset="100%" stop-color="#1a4a6e"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect x="120" y="180" width="520" height="340" rx="12" fill="#0d3558" opacity="0.9"/>
+  <rect x="680" y="220" width="780" height="280" rx="12" fill="#124a72" opacity="0.85"/>
+  <circle cx="380" cy="350" r="80" fill="#b3a369" opacity="0.35"/>
+  <path d="M900 420 L1100 320 L1300 420 L1100 520 Z" fill="#b3a369" opacity="0.5"/>
+  <text x="800" y="780" text-anchor="middle" fill="#d4c48a" font-family="Arial,sans-serif" font-size="28" font-weight="600">Workshop / Hero Image</text>
+  <text x="800" y="820" text-anchor="middle" fill="#8fa8bf" font-family="Arial,sans-serif" font-size="18">Replace with club photo</text>
+</svg>

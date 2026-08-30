@@ -1,0 +1,92 @@
+{
+  "events": [
+    {
+      "title": "Foam Wing Fabrication",
+      "tag": "Workshop",
+      "description": "Members learned hot wire cutting techniques to shape airfoils and prototype flight surfaces.",
+      "image": "placeholder images/DSC09718.jpg",
+      "alt": "Member using a hot wire foam cutter for wing prototypes",
+      "show_on_home": true
+    },
+    {
+      "title": "3D Printing & CAD Night",
+      "tag": "Workshop",
+      "description": "Students designed parts in CAD and printed aerospace components on club 3D printers.",
+      "image": "placeholder images/DSC09110.jpg",
+      "alt": "Members working with 3D printers and CAD software",
+      "show_on_home": true
+    },
+    {
+      "title": "Laser-Cut Assembly Sprint",
+      "tag": "Build Night",
+      "description": "Teams cut precision parts on the laser and assembled complex mechanical structures by hand. Test",
+      "image": "placeholder images/DSC09874.jpg",
+      "alt": "Members assembling a laser-cut structural project",
+      "show_on_home": false
+    },
+    {
+      "title": "Maker Space Social",
+      "tag": "Community",
+      "description": "A fun community night in the Aero Maker Space\u2014building friendships alongside projects.",
+      "image": "placeholder images/IMG_2378.JPG",
+      "alt": "Community social event in the Aero Maker Space",
+      "show_on_home": false
+    },
+    {
+      "title": "New Event",
+      "tag": "Workshop",
+      "description": "Describe what happened at this event.",
+      "image": "",
+      "alt": "",
+      "show_on_home": false
+    },
+    {
+      "title": "New Event",
+      "tag": "Workshop",
+      "description": "Describe what happened at this event.",
+      "image": "",
+      "alt": "",
+      "show_on_home": false
+    },
+    {
+      "title": "New Event",
+      "tag": "Workshop",
+      "description": "Describe what happened at this event.",
+      "image": "",
+      "alt": "",
+      "show_on_home": false
+    },
+    {
+      "title": "New Event",
+      "tag": "Workshop",
+      "description": "Describe what happened at this event.",
+      "image": "",
+      "alt": "",
+      "show_on_home": false
+    },
+    {
+      "title": "New Event",
+      "tag": "Workshop",
+      "description": "Describe what happened at this event.",
+      "image": "",
+      "alt": "",
+      "show_on_home": false
+    },
+    {
+      "title": "New Event",
+      "tag": "Workshop",
+      "description": "Describe what happened at this event.",
+      "image": "",
+      "alt": "",
+      "show_on_home": false
+    },
+    {
+      "title": "New Event",
+      "tag": "Workshop",
+      "description": "Describe what happened at this event.",
+      "image": "",
+      "alt": "",
+      "show_on_home": false
+    }
+  ]
+}

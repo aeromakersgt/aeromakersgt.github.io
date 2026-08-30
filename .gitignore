@@ -1,0 +1,4 @@
+# Local site builder — keep Python off GitHub Pages
+__pycache__/
+*.py
+*.pyc

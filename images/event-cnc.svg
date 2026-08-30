@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" role="img" aria-label="CNC demo placeholder">
+  <rect width="800" height="500" fill="#243447"/>
+  <rect x="100" y="120" width="300" height="200" rx="6" fill="#4a6278"/>
+  <circle cx="580" cy="220" r="90" fill="#b3a369" opacity="0.4"/>
+  <text x="400" y="420" text-anchor="middle" fill="#d4c48a" font-family="Arial,sans-serif" font-size="22" font-weight="600">CNC Machining Demo</text>
+  <text x="400" y="450" text-anchor="middle" fill="#8fa8bf" font-family="Arial,sans-serif" font-size="14">Event photo placeholder</text>
+</svg>

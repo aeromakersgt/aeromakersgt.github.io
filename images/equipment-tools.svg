@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="700" viewBox="0 0 900 700" role="img" aria-label="Equipment tools placeholder">
+  <rect width="900" height="700" fill="#eef2f6"/>
+  <rect x="80" y="100" width="740" height="420" rx="16" fill="#003057" opacity="0.88"/>
+  <rect x="140" y="180" width="180" height="120" rx="8" fill="#b3a369" opacity="0.5"/>
+  <rect x="360" y="180" width="180" height="120" rx="8" fill="#ffffff" opacity="0.15"/>
+  <rect x="580" y="180" width="180" height="120" rx="8" fill="#ffffff" opacity="0.15"/>
+  <rect x="140" y="340" width="620" height="80" rx="8" fill="#ffffff" opacity="0.1"/>
+  <text x="450" y="620" text-anchor="middle" fill="#003057" font-family="Arial,sans-serif" font-size="24" font-weight="600">Equipment &amp; Tools</text>
+  <text x="450" y="655" text-anchor="middle" fill="#6b7c8f" font-family="Arial,sans-serif" font-size="16">Placeholder image</text>
+</svg>

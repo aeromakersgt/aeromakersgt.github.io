@@ -1,0 +1,44 @@
+{
+  "intro": {
+    "eyebrow": "What We Offer",
+    "heading": "Built for aerospace makers",
+    "description": "AMGT invests in tools that benefit the entire campus maker community\u2014from rapid prototyping to precision fabrication."
+  },
+  "hero_image": {
+    "src": "placeholder images/IMG_1331.JPG",
+    "alt": "Epilog laser cutters in the Aero Maker Space"
+  },
+  "features": [
+    {
+      "title": "Fabrication & Machining",
+      "description": "Access to tools for cutting, shaping, and finishing aerospace-grade parts."
+    },
+    {
+      "title": "Electronics & Avionics",
+      "description": "Support for wiring, testing, and integrating systems into flying platforms."
+    },
+    {
+      "title": "Composites & Materials",
+      "description": "Resources for lightweight structures and advanced material experimentation."
+    }
+  ],
+  "gallery": {
+    "eyebrow": "Our Space",
+    "heading": "Where ideas become hardware",
+    "lead": "From 3D printing and laser cutting to machining and assembly, the Aero Maker Space is where GT students turn concepts into real aerospace projects.",
+    "images": [
+      {
+        "src": "placeholder images/IMG_1329.JPG",
+        "alt": "3D printed aerospace component on an Afinia printer"
+      },
+      {
+        "src": "placeholder images/DSC09209.jpg",
+        "alt": "Member assembling a project at the laser cutter station"
+      },
+      {
+        "src": "placeholder images/DSC09798.jpg",
+        "alt": "Precision machining on a lathe in the maker workshop"
+      }
+    ]
+  }
+}
