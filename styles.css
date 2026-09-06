@@ -227,12 +227,18 @@ p {
 .hero-bg {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .hero-bg img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
+  max-width: none;
   object-fit: cover;
+  object-position: center;
 }
 
 .hero-overlay {
@@ -323,20 +329,25 @@ p {
   padding: 6.5rem 0 4rem;
 }
 
-.page-hero-bg {
-  position: absolute;
-  inset: 0;
-}
-
-.page-hero-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
+.page-hero-bg,
 .page-hero-overlay {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.page-hero-bg img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center;
+}
+
+.page-hero-overlay {
   background: linear-gradient(180deg, rgba(0, 26, 51, 0.55) 0%, rgba(0, 26, 51, 0.9) 80%);
 }
 
@@ -558,8 +569,8 @@ p {
 /* Events */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.1rem;
 }
 
 .event-card {
@@ -577,12 +588,17 @@ p {
 
 .event-card img {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
 }
 
 .event-card-body {
-  padding: 1.35rem 1.4rem 1.5rem;
+  padding: 1rem 1.1rem 1.15rem;
+}
+
+.event-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.45rem;
 }
 
 .tag {
@@ -964,7 +980,7 @@ p {
   }
 
   .card-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .gallery-grid {
@@ -1017,6 +1033,10 @@ p {
   .stats-grid,
   .impact-grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
   }
 
   .impact-band {
