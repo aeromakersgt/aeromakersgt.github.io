@@ -22,7 +22,7 @@
       "description": "The Aero Maker Space uses AMGT manufacturing samples and equipment to show off the AE and inspire future makers to thousands of attendees at the Atlanta Science Festival!",
       "image": "images/uploads/33520a60_IMG_3607.jpg",
       "alt": "IMG 3607",
-      "show_on_home": true
+      "show_on_home": false
     },
     {
       "title": "AMGT/AMS Town Hall",
@@ -30,6 +30,14 @@
       "description": "To coordinate the AE makers around campus, AMGT ran a town hall with all AE club members detailing future upgrades to the on-campus Aero Maker Space (AMS), sharing the socials AMGT, and opening the floor for feedback on the direction of AE student manufacturing.",
       "image": "images/uploads/54978aae_IMG_7991.png",
       "alt": "Town Hall Flyer",
+      "show_on_home": true
+    },
+    {
+      "title": "GT Mini 500",
+      "tag": "Workshop",
+      "description": "AMGT works with the Aero Maker Space and Aerospace Machine Shop to help build and race a Mini 500 tricycle, a GT tradition! Our 2025 trike was inspired by the F-14 Tomcat! Trikes must ride 8 laps and switch wheels every 2 laps.",
+      "image": "images/uploads/2bb93ac7_MichaelPen008894-R1-007.jpg",
+      "alt": "MichaelPen008894-R1-007",
       "show_on_home": true
     },
     {
@@ -47,14 +55,6 @@
       "image": "images/uploads/054fd0db_IMG_2217.jpg",
       "alt": "IMG 2217",
       "show_on_home": true
-    },
-    {
-      "title": "GT Mini 500",
-      "tag": "Workshop",
-      "description": "AMGT works with the Aero Maker Space and Aerospace Machine Shop to help build and race a Mini 500 tricycle, a GT tradition! Our 2025 trike was inspired by the F-14 Tomcat! Trikes must ride 8 laps and switch wheels every 2 laps.",
-      "image": "images/uploads/2bb93ac7_MichaelPen008894-R1-007.jpg",
-      "alt": "MichaelPen008894-R1-007",
-      "show_on_home": false
     }
   ]
 }
