@@ -1,83 +1,51 @@
 {
   "events": [
     {
-      "title": "Foam Wing Fabrication",
-      "tag": "Workshop",
-      "description": "Members learned hot wire cutting techniques to shape airfoils and prototype flight surfaces.",
-      "image": "placeholder images/DSC09718.jpg",
-      "alt": "Member using a hot wire foam cutter for wing prototypes",
-      "show_on_home": true
-    },
-    {
-      "title": "3D Printing & CAD Night",
-      "tag": "Workshop",
-      "description": "Students designed parts in CAD and printed aerospace components on club 3D printers.e3e3e3e3e3e3e3e3",
-      "image": "placeholder images/DSC09110.jpg",
-      "alt": "Members working with 3D printers and CAD software",
-      "show_on_home": true
-    },
-    {
-      "title": "Laser-Cut Assembly Sprint",
-      "tag": "Build Night",
-      "description": "Teams cut precision parts on the laser and assembled complex mechanical structures by hand. Test",
+      "title": "Coffee+CAD",
+      "tag": "Technical",
+      "description": "We lowered the bar to learning about using CAD by sharing CAD skills over cups of coffee and light snacks provided by AMGT, taught by AMGT members!",
       "image": "placeholder images/DSC09874.jpg",
-      "alt": "Members assembling a laser-cut structural project",
-      "show_on_home": false
-    },
-    {
-      "title": "Maker Space Social",
-      "tag": "Community",
-      "description": "A fun community night in the Aero Maker Space-building friendships alongside projects.",
-      "image": "placeholder images/IMG_2378.JPG",
-      "alt": "Community social event in the Aero Maker Space",
-      "show_on_home": false
-    },
-    {
-      "title": "New Event",
-      "tag": "Workshop",
-      "description": "Describe what happened at this event.",
-      "image": "",
       "alt": "",
       "show_on_home": false
     },
     {
-      "title": "New Event",
-      "tag": "Workshop",
-      "description": "Describe what happened at this event.",
-      "image": "",
-      "alt": "",
+      "title": "Spring 2026 Bowling Social ",
+      "tag": "Social",
+      "description": "We had our 2nd bowling social with a dash of competition between our members and discussed future project ideas while scoring strikes before Finals season! This time, we provided food for all attendees!",
+      "image": "images/uploads/a7839e9f_IMG_2372.jpg",
+      "alt": "Pool",
+      "show_on_home": true
+    },
+    {
+      "title": "Atlanta Science Festival",
+      "tag": "OUTREACH",
+      "description": "The Aero Maker Space uses AMGT manufacturing samples and equipment to show off the AE and inspire future makers to thousands of attendees at the Atlanta Science Festival!",
+      "image": "images/uploads/33520a60_IMG_3607.jpg",
+      "alt": "IMG 3607",
       "show_on_home": false
     },
     {
-      "title": "New Event",
+      "title": "AMGT/AMS Town Hall",
       "tag": "Workshop",
-      "description": "Describe what happened at this event.",
-      "image": "",
-      "alt": "",
+      "description": "To coordinate the AE makers around campus, AMGT ran a town hall with all AE club members detailing future upgrades to the on-campus Aero Maker Space (AMS), sharing the socials AMGT, and opening the floor for feedback on the direction of AE student manufacturing.",
+      "image": "images/uploads/54978aae_IMG_7991.png",
+      "alt": "Town Hall Flyer",
+      "show_on_home": true
+    },
+    {
+      "title": "Fall 2025 Bowling Social",
+      "tag": "Workshop",
+      "description": "AMGT rented the Tech Rec bowling alley and pool area in the GT Student Center to connect members and promote fun events between makers!",
+      "image": "images/uploads/d340d180_IMG_3136.jpg",
+      "alt": "IMG 3136",
       "show_on_home": false
     },
     {
-      "title": "New Event",
-      "tag": "Workshop",
-      "description": "Describe what happened at this event.",
-      "image": "",
-      "alt": "",
-      "show_on_home": false
-    },
-    {
-      "title": "New Event",
-      "tag": "Workshop",
-      "description": "Describe what happened at this event.",
-      "image": "",
-      "alt": "",
-      "show_on_home": false
-    },
-    {
-      "title": "New Event",
-      "tag": "Workshop",
-      "description": "Describe what happened at this event.",
-      "image": "",
-      "alt": "",
+      "title": "Coffee and Donuts",
+      "tag": "Social",
+      "description": "AMGT takes part in a GT AE tradition to run coffee and donuts every year, providing donuts and coffee to early bird students and bring them to the Aero Maker Space!",
+      "image": "images/uploads/054fd0db_IMG_2217.jpg",
+      "alt": "IMG 2217",
       "show_on_home": false
     }
   ]

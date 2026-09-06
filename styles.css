@@ -315,9 +315,34 @@ p {
 
 /* Page hero (inner pages) */
 .page-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   background: linear-gradient(180deg, var(--navy-dark), var(--navy));
   color: var(--white);
   padding: 6.5rem 0 4rem;
+}
+
+.page-hero-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.page-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 26, 51, 0.55) 0%, rgba(0, 26, 51, 0.9) 80%);
+}
+
+.page-hero .container {
+  position: relative;
+  z-index: 1;
 }
 
 .page-hero .eyebrow {
@@ -579,6 +604,74 @@ p {
   font-size: 0.95rem;
 }
 
+.equipment-intro {
+  max-width: 40rem;
+  margin-bottom: 2.5rem;
+}
+
+.equipment-cycle {
+  position: relative;
+}
+
+.equipment-slide {
+  display: none;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2.75rem;
+  align-items: center;
+}
+
+.equipment-slide.is-active {
+  display: grid;
+}
+
+.equipment-slide-media img,
+.equipment-slide-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.equipment-slide-placeholder {
+  background: var(--gray-100);
+}
+
+.equipment-slide-copy .feature-icon {
+  margin-bottom: 1rem;
+}
+
+.equipment-slide-copy h3 {
+  margin-bottom: 0.75rem;
+}
+
+.equipment-slide-copy p {
+  margin: 0;
+  color: var(--gray-500);
+}
+
+.equipment-dots {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1.75rem;
+}
+
+.equipment-dot {
+  width: 0.7rem;
+  height: 0.7rem;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--gray-100);
+  cursor: pointer;
+}
+
+.equipment-dot.is-active {
+  background: var(--navy);
+}
+
 /* Features */
 .feature-list {
   display: grid;
@@ -638,15 +731,16 @@ p {
 
 /* Impact stats (sponsors page) */
 .impact-band {
+  position: relative;
+  z-index: 1;
   background: var(--navy-dark);
-  padding: 0 0 3.5rem;
+  padding: 2.75rem 0 3.5rem;
 }
 
 .impact-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.25rem;
-  margin-top: -2.25rem;
 }
 
 .impact-stat {
@@ -859,7 +953,9 @@ p {
   }
 
   .split,
-  .contact-grid {
+  .contact-grid,
+  .equipment-slide,
+  .equipment-slide.is-active {
     grid-template-columns: 1fr;
   }
 
@@ -924,7 +1020,7 @@ p {
   }
 
   .impact-band {
-    padding-bottom: 2.5rem;
+    padding: 2rem 0 2.5rem;
   }
 
   .mosaic {

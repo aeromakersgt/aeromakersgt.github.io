@@ -24,6 +24,7 @@
     <span class="amgt-bar-hint" id="amgt-hint">Click a highlighted block to edit it</span>
     <div class="amgt-bar-actions" id="amgt-page-actions"></div>
     <span class="amgt-bar-status" id="amgt-status">Loading…</span>
+    <button type="button" class="amgt-btn-ghost amgt-side-toggle" id="amgt-drawer-side" aria-label="Move editor to the left">&lt;&gt;</button>
     <button type="button" class="amgt-btn-ghost" id="amgt-revert" disabled>Revert</button>
     <button type="button" class="amgt-btn" id="amgt-save">Save</button>
     <button type="button" class="amgt-btn" id="amgt-deploy">Deploy</button>
@@ -35,10 +36,41 @@
   drawer.innerHTML = `<div class="amgt-drawer-inner" id="amgt-drawer-inner"></div>`;
   document.body.appendChild(drawer);
 
+  const DRAWER_SIDE_KEY = "amgt-drawer-side";
+  let drawerSide = localStorage.getItem(DRAWER_SIDE_KEY) === "left" ? "left" : "right";
+
   const statusEl = document.getElementById("amgt-status");
   const hintEl = document.getElementById("amgt-hint");
   const actionsEl = document.getElementById("amgt-page-actions");
   const drawerInner = document.getElementById("amgt-drawer-inner");
+  const sideBtn = document.getElementById("amgt-drawer-side");
+
+  function sideButtonLabel() {
+    return "<>";
+  }
+
+  function sideButtonHTML() {
+    return "&lt;&gt;";
+  }
+
+  function sideButtonAria() {
+    return drawerSide === "right" ? "Move editor to the left" : "Move editor to the right";
+  }
+
+  function applyDrawerSide() {
+    drawer.classList.toggle("amgt-drawer-left", drawerSide === "left");
+    [sideBtn, drawerInner.querySelector("[data-action='toggle-side']")].forEach((button) => {
+      if (!button) return;
+      button.textContent = sideButtonLabel();
+      button.setAttribute("aria-label", sideButtonAria());
+    });
+  }
+
+  function toggleDrawerSide() {
+    drawerSide = drawerSide === "right" ? "left" : "right";
+    localStorage.setItem(DRAWER_SIDE_KEY, drawerSide);
+    applyDrawerSide();
+  }
 
   function setStatus(message) {
     statusEl.textContent = message;
@@ -284,13 +316,17 @@
 
   function featureHTML(feature, index) {
     const number = String(index + 1).padStart(2, "0");
-    return `<div class="feature amgt-editable" data-edit="feature" data-index="${index}">
-      <span class="feature-icon">${number}</span>
-      <div>
-        <h4>${escapeHtml(feature.title || "")}</h4>
+    const media = feature.image
+      ? `<img src="${escapeHtml(feature.image)}" alt="${escapeHtml(feature.alt || feature.title || "")}">`
+      : `<div class="equipment-slide-placeholder" aria-hidden="true"></div>`;
+    return `<article class="equipment-slide${index === 0 ? " is-active" : ""} amgt-editable" data-edit="feature" data-index="${index}">
+      <div class="equipment-slide-media">${media}</div>
+      <div class="equipment-slide-copy">
+        <span class="feature-icon">${number}</span>
+        <h3>${escapeHtml(feature.title || "")}</h3>
         <p>${escapeHtml(feature.description || "")}</p>
       </div>
-    </div>`;
+    </article>`;
   }
 
   function sponsorSlotHTML(sponsor, index) {
@@ -317,11 +353,11 @@
     if (page !== "equipment") return;
     const equipment = content.equipment;
     const intro = equipment.intro || {};
-    const copy = document.querySelector(".split-copy");
+    const copy = document.querySelector(".equipment-intro");
     if (copy) {
-      const eyebrow = copy.querySelector(":scope > .eyebrow");
-      const heading = copy.querySelector(":scope > h2");
-      const description = copy.querySelector(":scope > p");
+      const eyebrow = copy.querySelector(".eyebrow");
+      const heading = copy.querySelector("h2");
+      const description = copy.querySelector("p:not(.eyebrow)");
       if (eyebrow) eyebrow.textContent = intro.eyebrow || "";
       if (heading) heading.textContent = intro.heading || "";
       if (description) description.textContent = intro.description || "";
@@ -329,18 +365,11 @@
       copy.dataset.edit = "intro";
     }
 
-    const featureList = document.querySelector(".feature-list");
-    if (featureList) {
-      featureList.innerHTML = featuresList().map((feature, index) => featureHTML(feature, index)).join("");
-    }
-
-    const hero = equipment.hero_image || {};
-    const heroImg = document.querySelector(".split-media img");
-    if (heroImg) {
-      heroImg.src = hero.src || "";
-      heroImg.alt = hero.alt || "";
-      heroImg.classList.add("amgt-editable");
-      heroImg.dataset.edit = "hero";
+    const cycle = document.querySelector(".equipment-cycle");
+    if (cycle) {
+      cycle.querySelector(".equipment-dots")?.remove();
+      cycle.innerHTML = featuresList().map((feature, index) => featureHTML(feature, index)).join("");
+      window.AMGT?.initEquipmentCycle?.();
     }
 
     const gallery = equipment.gallery || {};
@@ -369,14 +398,7 @@
     const pageCopy = content.sponsors.page || {};
     const hero = document.querySelector(".page-hero .container");
     if (hero) {
-      const eyebrow = hero.querySelector(".eyebrow");
-      const heading = hero.querySelector("h1");
-      const lead = hero.querySelector(".page-hero-lead");
-      if (eyebrow) eyebrow.textContent = pageCopy.eyebrow || "";
-      if (heading) heading.textContent = pageCopy.heading || "";
-      if (lead) lead.textContent = pageCopy.lead || "";
-      hero.classList.add("amgt-editable");
-      hero.dataset.edit = "sponsors-hero";
+      fillPageHero(hero, pageCopy, "sponsors-hero");
     }
 
     const statsGrid = document.querySelector(".impact-grid");
@@ -468,7 +490,45 @@
     const secondary = container.querySelector(".btn-secondary");
     if (primary && data.primary_cta != null) primary.textContent = data.primary_cta;
     if (secondary && data.secondary_cta != null) secondary.textContent = data.secondary_cta;
-    markCopy(container, type);
+    const section = container.closest(".page-hero, .hero") || container;
+    markCopy(section.classList.contains("page-hero") ? section : container, type);
+    syncHeroPhoto(section, data);
+  }
+
+  function syncHeroPhoto(section, data) {
+    if (!section || !data) return;
+    if (section.classList.contains("hero") || section.querySelector(".hero-content")) {
+      const homeImg = document.querySelector(".hero-bg img");
+      if (homeImg && data.image) {
+        homeImg.src = data.image;
+        homeImg.alt = data.image_alt || "";
+        homeImg.classList.add("amgt-editable");
+        homeImg.dataset.edit = "home-hero";
+      }
+      return;
+    }
+    const pageHero = section.classList.contains("page-hero") ? section : section.closest(".page-hero");
+    if (!pageHero) return;
+    if (data.image) {
+      let bg = pageHero.querySelector(".page-hero-bg");
+      if (!bg) {
+        bg = document.createElement("div");
+        bg.className = "page-hero-bg";
+        bg.innerHTML = "<img alt=\"\">";
+        const overlay = document.createElement("div");
+        overlay.className = "page-hero-overlay";
+        pageHero.prepend(overlay);
+        pageHero.prepend(bg);
+      }
+      const img = bg.querySelector("img");
+      if (img) {
+        img.src = data.image;
+        img.alt = data.image_alt || "";
+      }
+    } else {
+      pageHero.querySelector(".page-hero-bg")?.remove();
+      pageHero.querySelector(".page-hero-overlay")?.remove();
+    }
   }
 
   function fillSectionHead(head, data, type) {
@@ -619,7 +679,7 @@
 
   function fieldHTML(label, name, value, kind = "text") {
     if (kind === "textarea") {
-      return `<label class="amgt-field">${label}<textarea name="${name}">${escapeHtml(value || "")}</textarea></label>`;
+      return `<label class="amgt-field">${label}<textarea name="${name}" rows="12">${escapeHtml(value || "")}</textarea></label>`;
     }
     if (kind === "checkbox") {
       return `<label class="amgt-check"><input type="checkbox" name="${name}" ${value ? "checked" : ""}>${label}</label>`;
@@ -662,10 +722,12 @@
       feature: () => {
         const feature = featuresList()[index] || {};
         return {
-          title: "Edit equipment block",
-          lead: "These short blocks sit beside the large workshop photo.",
+          title: "Edit equipment",
+          lead: "Each item has its own photo. The page cycles through this list.",
           body: fieldHTML("Title", "title", feature.title)
             + fieldHTML("Description", "description", feature.description, "textarea")
+            + fieldHTML("Photo description", "alt", feature.alt)
+            + imageFieldHTML(feature.image)
             + itemActions(),
         };
       },
@@ -709,7 +771,9 @@
           title: "Edit sponsors intro",
           body: fieldHTML("Eyebrow", "eyebrow", pageCopy.eyebrow)
             + fieldHTML("Heading", "heading", pageCopy.heading)
-            + fieldHTML("Lead", "lead", pageCopy.lead, "textarea"),
+            + fieldHTML("Lead", "lead", pageCopy.lead, "textarea")
+            + fieldHTML("Background photo description", "image_alt", pageCopy.image_alt)
+            + imageFieldHTML(pageCopy.image),
         };
       },
       stat: () => {
@@ -804,11 +868,15 @@
     if (COPY_FIELDS[type] && !schemas[type]) {
       schemas[type] = () => {
         const data = copyObject(type) || {};
-        const body = COPY_FIELDS[type].map(([label, name, kind]) => {
+        let body = COPY_FIELDS[type].map(([label, name, kind]) => {
           let value = data[name];
           if (name === "points" && Array.isArray(value)) value = value.join("\n");
           return fieldHTML(label, name, value, kind || "text");
         }).join("");
+        if (type.endsWith("-hero") || type === "home-hero") {
+          body += fieldHTML("Background photo description", "image_alt", data.image_alt)
+            + imageFieldHTML(data.image);
+        }
         return {
           title: "Edit text",
           lead: "This title and description appear on the page.",
@@ -820,12 +888,18 @@
     const schema = schemas[type];
     if (!schema) return;
     const view = schema();
-    drawerInner.innerHTML = `<h2>${escapeHtml(view.title)}</h2>
-      <p class="amgt-drawer-lead">${escapeHtml(view.lead || "Changes show on the page as you type.")}</p>
+    drawerInner.innerHTML = `<div class="amgt-drawer-head">
+      <div>
+        <h2>${escapeHtml(view.title)}</h2>
+        <p class="amgt-drawer-lead">${escapeHtml(view.lead || "Changes show on the page as you type.")}</p>
+      </div>
+      <button type="button" class="amgt-btn-ghost amgt-side-toggle" data-action="toggle-side" aria-label="${sideButtonAria()}">${sideButtonHTML()}</button>
+    </div>
       ${view.body}`;
     drawer.classList.add("open");
     highlightCurrent();
     bindDrawer();
+    drawerInner.querySelectorAll("textarea").forEach(autosizeTextarea);
   }
 
   function applyField(name, value) {
@@ -918,10 +992,25 @@
 
     if (type === "feature" && node) {
       const feature = featuresList()[index] || {};
-      const title = node.querySelector("h4");
+      const title = node.querySelector("h3");
       const desc = node.querySelector("p");
+      const media = node.querySelector(".equipment-slide-media");
       if (title) title.textContent = feature.title || "";
       if (desc) desc.textContent = feature.description || "";
+      if (media) {
+        if (feature.image) {
+          let img = media.querySelector("img");
+          if (!img) {
+            media.innerHTML = "";
+            img = document.createElement("img");
+            media.appendChild(img);
+          }
+          if (img.getAttribute("src") !== feature.image) img.src = feature.image;
+          img.alt = feature.alt || feature.title || "";
+        } else {
+          media.innerHTML = `<div class="equipment-slide-placeholder" aria-hidden="true"></div>`;
+        }
+      }
       return;
     }
 
@@ -934,7 +1023,7 @@
 
     if (type === "intro") {
       const intro = content.equipment.intro || {};
-      const copy = document.querySelector(".split-copy");
+      const copy = document.querySelector(".equipment-intro");
       if (!copy) return;
       const eyebrow = copy.querySelector(":scope > .eyebrow");
       const heading = copy.querySelector(":scope > h2");
@@ -959,15 +1048,8 @@
     }
 
     if (type === "sponsors-hero") {
-      const pageCopy = content.sponsors.page || {};
       const hero = document.querySelector(".page-hero .container");
-      if (!hero) return;
-      const eyebrow = hero.querySelector(".eyebrow");
-      const heading = hero.querySelector("h1");
-      const lead = hero.querySelector(".page-hero-lead");
-      if (eyebrow) eyebrow.textContent = pageCopy.eyebrow || "";
-      if (heading) heading.textContent = pageCopy.heading || "";
-      if (lead) lead.textContent = pageCopy.lead || "";
+      if (hero) fillPageHero(hero, content.sponsors.page || {}, "sponsors-hero");
       return;
     }
 
@@ -1015,6 +1097,11 @@
     refreshPage();
   }
 
+  function autosizeTextarea(field) {
+    field.style.height = "auto";
+    field.style.height = `${Math.max(field.scrollHeight, 288)}px`;
+  }
+
   function bindDrawer() {
     drawerInner.querySelectorAll("input, textarea").forEach((field) => {
       if (field.type === "file") {
@@ -1024,12 +1111,20 @@
           try {
             setStatus("Uploading photo…");
             const path = await uploadFile(file);
-            const key = current.type === "event" || current.type === "about-team"
-              ? "image"
-              : current.type === "sponsor" ? "logo" : "src";
+            let key = "src";
+            if (["event", "about-team", "feature"].includes(current.type)) key = "image";
+            else if (current.type === "sponsor") key = "logo";
+            else if (COPY_BLOCKS[current.type] || current.type === "sponsors-hero") key = "image";
             applyField(key, path);
+            const label = file.name.replace(/\.[^.]+$/, "").replace(/_/g, " ");
             if (current.type === "event" && !eventsList()[current.index].alt) {
-              applyField("alt", file.name.replace(/\.[^.]+$/, "").replace(/_/g, " "));
+              applyField("alt", label);
+            }
+            if (current.type === "feature" && !featuresList()[current.index].alt) {
+              applyField("alt", label);
+            }
+            if ((COPY_BLOCKS[current.type] || current.type === "sponsors-hero") && !(copyObject(current.type) || {}).image_alt) {
+              applyField("image_alt", label);
             }
             openEditor(current.type, current.index);
             setStatus("Photo added");
@@ -1043,11 +1138,20 @@
         field.addEventListener("change", () => applyField(field.name, field.checked));
         return;
       }
-      field.addEventListener("input", () => applyField(field.name, field.value));
+      field.addEventListener("input", () => {
+        applyField(field.name, field.value);
+        if (field.tagName === "TEXTAREA") autosizeTextarea(field);
+      });
     });
 
     drawerInner.querySelectorAll("[data-action]").forEach((button) => {
-      button.addEventListener("click", () => runItemAction(button.dataset.action));
+      button.addEventListener("click", () => {
+        if (button.dataset.action === "toggle-side") {
+          toggleDrawerSide();
+          return;
+        }
+        runItemAction(button.dataset.action);
+      });
     });
   }
 
@@ -1101,6 +1205,8 @@
     featuresList().push({
       title: "New equipment",
       description: "Describe this tool or capability.",
+      image: "",
+      alt: "",
     });
     markDirty();
     refreshPage();
@@ -1169,7 +1275,7 @@
   function setupActions() {
     const buttons = {
       events: [["Add event", addEvent]],
-      equipment: [["Add equipment block", addFeature], ["Add photo", addGallery]],
+      equipment: [["Add equipment", addFeature], ["Add gallery photo", addGallery]],
       sponsors: [["Add statistic", addStat], ["Add sponsor", addSponsor]],
       about: [["Add board member", addTeamMember]],
     };
@@ -1245,6 +1351,8 @@
     }
   });
 
+  sideBtn.addEventListener("click", toggleDrawerSide);
+  applyDrawerSide();
   setupActions();
 
   fetch("/__api/content")

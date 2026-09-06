@@ -2,7 +2,9 @@
   "page": {
     "eyebrow": "Sponsorship",
     "heading": "Help us equip the next generation of aerospace makers",
-    "lead": "Your partnership funds tools, workshops, and community events that make hands-on aerospace engineering accessible to every student at Georgia Tech."
+    "lead": "Your partnership funds tools, workshops, and community events that make hands-on aerospace engineering accessible to every student at Georgia Tech.",
+    "image": "placeholder images/DSC09881.jpg",
+    "image_alt": "Students working together in the Aero Maker Space"
   },
   "stats": [
     {
@@ -21,7 +23,7 @@
       "detail": "Hands-on events teaching fabrication, CAD, and flight hardware"
     },
     {
-      "value": "$15K+",
+      "value": "$65K+",
       "label": "Equipment invested",
       "detail": "Tools purchased and maintained for the Georgia Tech community"
     }
@@ -42,7 +44,7 @@
     "lead": "AMGT is grateful for the organizations that help us equip labs, run events, and keep aerospace making accessible to every student at Georgia Tech.",
     "items": [
       {
-        "name": "Sponsor 1",
+        "name": "GT SGA",
         "logo": "images/sponsor-1.svg",
         "alt": "Sponsor placeholder 1",
         "url": ""
@@ -69,7 +71,7 @@
   },
   "cta": {
     "text": "Interested in supporting the next generation of aerospace engineers?",
-    "email": "contact@amgt.gatech.edu",
+    "email": "aeromakersgt@gmail.com",
     "link_label": "Email us"
   }
 }

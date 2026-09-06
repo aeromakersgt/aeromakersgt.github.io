@@ -11,15 +11,21 @@
   "features": [
     {
       "title": "Fabrication & Machining",
-      "description": "Access to tools for cutting, shaping, and finishing aerospace-grade parts."
+      "description": "Access to tools for cutting, shaping, and finishing aerospace-grade parts.",
+      "image": "placeholder images/IMG_1331.JPG",
+      "alt": "Epilog laser cutters in the Aero Maker Space"
     },
     {
       "title": "Electronics & Avionics",
-      "description": "Support for wiring, testing, and integrating systems into flying platforms."
+      "description": "Support for wiring, testing, and integrating systems into flying platforms.",
+      "image": "placeholder images/IMG_1329.JPG",
+      "alt": "3D printed aerospace component on an Afinia printer"
     },
     {
       "title": "Composites & Materials",
-      "description": "Resources for lightweight structures and advanced material experimentation."
+      "description": "Resources for lightweight structures and advanced material experimentation.",
+      "image": "placeholder images/DSC09798.jpg",
+      "alt": "Precision machining on a lathe in the maker workshop"
     }
   ],
   "gallery": {

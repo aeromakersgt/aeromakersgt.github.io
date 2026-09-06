@@ -103,13 +103,24 @@ def render_event_card(event: dict) -> str:
 
 def render_feature(feature: dict, index: int) -> str:
     number = f"{index:02d}"
-    return f"""            <div class="feature">
+    active = " is-active" if index == 1 else ""
+    src = (feature.get("image") or "").strip()
+    alt = feature.get("alt") or feature.get("title") or ""
+    media = (
+        f'<img src="{escape(src)}" alt="{escape(alt)}">'
+        if src
+        else '<div class="equipment-slide-placeholder" aria-hidden="true"></div>'
+    )
+    return f"""          <article class="equipment-slide{active}">
+            <div class="equipment-slide-media">
+              {media}
+            </div>
+            <div class="equipment-slide-copy">
               <span class="feature-icon">{number}</span>
-              <div>
-                <h4>{escape(feature['title'])}</h4>
-                <p>{escape(feature['description'])}</p>
-              </div>
-            </div>"""
+              <h3>{escape(feature.get("title", ""))}</h3>
+              <p>{escape(feature.get("description", ""))}</p>
+            </div>
+          </article>"""
 
 
 def render_gallery_image(image: dict) -> str:
@@ -160,11 +171,21 @@ def render_sponsors_cta(cta: dict) -> str:
 
 
 def render_page_hero(block: dict) -> str:
-    return f"""          <p class="eyebrow">{escape(block.get("eyebrow", ""))}</p>
+    src = (block.get("image") or "").strip()
+    background = ""
+    if src:
+        background = f"""  <div class="page-hero-bg">
+    <img src="{escape(src)}" alt="{escape(block.get("image_alt", ""))}">
+  </div>
+  <div class="page-hero-overlay"></div>
+"""
+    return f"""{background}      <div class="container">
+          <p class="eyebrow">{escape(block.get("eyebrow", ""))}</p>
           <h1>{escape(block.get("heading", ""))}</h1>
           <p class="page-hero-lead">
             {escape(block.get("lead", ""))}
-          </p>"""
+          </p>
+      </div>"""
 
 
 def render_section_head(block: dict) -> str:
@@ -306,16 +327,10 @@ def build_site() -> list[str]:
     gallery_html = "\n".join(render_gallery_image(img) for img in gallery_images)
 
     intro = equipment_data.get("intro", {})
-    hero = equipment_data.get("hero_image", {})
 
     replace_marker(ROOT / "index.html", "HOME_EVENTS", home_event_html)
     replace_marker(ROOT / "events.html", "ALL_EVENTS", all_event_html)
     replace_marker(ROOT / "equipment.html", "EQUIPMENT_FEATURES", feature_html)
-    replace_marker(
-        ROOT / "equipment.html",
-        "EQUIPMENT_HERO",
-        f'          <img src="{escape(hero.get("src", ""))}" alt="{escape(hero.get("alt", ""))}">',
-    )
     replace_marker(ROOT / "equipment.html", "EQUIPMENT_GALLERY", gallery_html)
 
     # Update equipment intro and gallery headings via additional markers
@@ -348,15 +363,7 @@ def build_site() -> list[str]:
     stats_html = "\n".join(render_impact_stat(stat) for stat in stats)
     sponsor_grid_html = "\n".join(render_sponsor_slot(item) for item in sponsor_items)
 
-    replace_marker(
-        ROOT / "sponsors.html",
-        "SPONSORS_HERO",
-        f"""          <p class="eyebrow">{escape(page.get('eyebrow', ''))}</p>
-          <h1>{escape(page.get('heading', ''))}</h1>
-          <p class="page-hero-lead">
-            {escape(page.get('lead', ''))}
-          </p>""",
-    )
+    replace_marker(ROOT / "sponsors.html", "SPONSORS_HERO", render_page_hero(page))
     replace_marker(ROOT / "sponsors.html", "SPONSORS_STATS", stats_html)
     replace_marker(ROOT / "sponsors.html", "SPONSORS_WHY", render_why_block(why))
     replace_marker(
@@ -379,7 +386,13 @@ def build_site() -> list[str]:
     about = pages_data.get("about", {})
     contact = pages_data.get("contact", {})
 
-    replace_marker(ROOT / "index.html", "HOME_HERO", render_home_hero(home.get("hero", {})))
+    home_hero = home.get("hero", {})
+    replace_marker(
+        ROOT / "index.html",
+        "HOME_HERO_BG",
+        f'        <img src="{escape(home_hero.get("image") or "placeholder images/IMG_1547.JPG")}" alt="{escape(home_hero.get("image_alt", ""))}">',
+    )
+    replace_marker(ROOT / "index.html", "HOME_HERO", render_home_hero(home_hero))
     replace_marker(ROOT / "index.html", "HOME_STATS", render_home_stats(home.get("stats") or []))
     replace_marker(ROOT / "index.html", "HOME_WELCOME", render_home_welcome(home.get("welcome", {})))
     replace_marker(ROOT / "index.html", "HOME_EVENTS_HEAD", render_section_head(home.get("events", {})))
